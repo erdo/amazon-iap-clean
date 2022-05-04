@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">clean</string>
+    <string name="app_name">amzn</string>
 
     <!-- common error messages -->
     <string name="msg_empty_message"></string>

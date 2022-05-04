@@ -1,0 +1,9 @@
+{
+  "com.amazon.sample.iap.consumable.orange": {
+    "itemType": "CONSUMABLE",
+    "price": 10.00,
+    "title": "Orange title",
+    "description": "An orange description",
+    "smallIconUrl": "https://openclipart.org/image/800px/svg_to_png/22897/chovynz-Orange-Icon.png"
+  }
+}

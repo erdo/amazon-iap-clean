@@ -1,4 +1,18 @@
 /**
+ *
+ * 1) install the amazon app store
+ *
+ * 2) install the iap amazon test app
+ *
+ * 3) create a test iap json file and place on device
+ *  adb push consumable-iap.json /sdcard/amazon.sdktester.json
+ *
+ *  4) set the sandbox mode to true
+ *  adb shell setprop debug.amazon.sandboxmode debug
+ *
+ * see more: https://developer.amazon.com/docs/in-app-purchasing/iap-get-started.html
+ *
+ *
  * ./gradlew check
  * ./gradlew testDebugUnitTest
  * ./gradlew connectedAndroidTest -PtestBuildType=debug --no-daemon --no-parallel --continue
