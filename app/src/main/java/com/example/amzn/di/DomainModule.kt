@@ -1,11 +1,25 @@
 package com.example.amzn.di
 
-import com.example.amzn.domain.refresher.RefreshModel
+import com.example.amzn.domain.iap.BoughtItems
+import com.example.amzn.domain.iap.ProductCatalogue
 import com.example.amzn.domain.refresher.OnRefreshMediator
+import com.example.amzn.domain.refresher.RefreshModel
 import com.example.amzn.domain.weather.WeatherModel
 import org.koin.dsl.module
 
 val domainModule = module(override = true) {
+
+    /**
+     * Amazon IAP
+     */
+
+    single {
+        BoughtItems()
+    }
+
+    single {
+        ProductCatalogue()
+    }
 
     /**
      * Models and Mediators

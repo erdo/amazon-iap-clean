@@ -7,8 +7,14 @@
  * 3) create a test iap json file and place on device
  *  adb push consumable-iap.json /sdcard/amazon.sdktester.json
  *
- *  4) set the sandbox mode to true
+ * 4) copy the AppstoreAuthenticationKey.pem to assets
+ *
+ * 5) set the sandbox mode to true
  *  adb shell setprop debug.amazon.sandboxmode debug
+ *
+ * 6) don't forget to add the ResponseReceiver in the manifest
+ *
+ * also don't forget you can only test like this on debug builds
  *
  * see more: https://developer.amazon.com/docs/in-app-purchasing/iap-get-started.html
  *

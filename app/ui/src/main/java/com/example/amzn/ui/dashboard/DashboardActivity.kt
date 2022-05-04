@@ -13,6 +13,7 @@ import com.example.amzn.ui.R
 import com.example.amzn.ui.common.prettyPrint
 import com.example.amzn.ui.common.showToast
 import com.example.amzn.ui.common.toImgRes
+import com.example.amzn.ui.purchase.PurchaseActivity
 import kotlinx.android.synthetic.main.inc_dashboard.*
 import kotlinx.android.synthetic.main.inc_diagnostics.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,6 +39,7 @@ class DashboardActivity : FragmentActivity(R.layout.activity_dashboard), Syncabl
         dashboard_startautorefresh_btn.setOnClickListener { viewModel.startAutoRefresh() }
         dashboard_stopautorefresh_btn.setOnClickListener { viewModel.stopAutoRefresh() }
         dashboard_updatenow_btn.setOnClickListener { viewModel.updateNow() }
+        dashboard_purchase_btn.setOnClickListener { PurchaseActivity.start(this) }
 
         // set up animations
         animations = DashboardAnimations(

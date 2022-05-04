@@ -15,13 +15,41 @@ import com.example.amzn.data.api.ktor.services.temperature.TemperatureApi
 import com.example.amzn.data.api.ktor.services.temperature.TemperatureServiceImp
 import com.example.amzn.data.api.ktor.services.windspeed.WindSpeedApi
 import com.example.amzn.data.api.ktor.services.windspeed.WindSpeedServiceImp
+import com.example.amzn.data.iap.AmazonPurchasingServiceImp
+import com.example.amzn.data.iap.AmazonFulfillment
+import com.example.amzn.data.iap.AmazonIapListener
+import com.example.amzn.domain.iap.BoughtItems
+import com.example.amzn.domain.iap.PurchasingService
 import com.example.amzn.domain.weather.PollenService
 import com.example.amzn.domain.weather.TemperatureService
 import com.example.amzn.domain.weather.WindSpeedService
 import org.koin.dsl.module
 
-@OptIn(ExperimentalStdlibApi::class)
 val dataModule = module(override = true) {
+
+    /**
+     * Amazon IAP
+     */
+
+    single {
+        AmazonIapListener(
+            productCatalogue = get(),
+            amazonFulfillment = get(),
+            userOwned = (get() as BoughtItems),
+        )
+    }
+
+    single {
+        AmazonFulfillment(
+            boughtItems = get(),
+            productCatalogue = get(),
+            purchasingService = get()
+        )
+    }
+
+    single<PurchasingService> {
+        AmazonPurchasingServiceImp()
+    }
 
     /**
      * Ktor

@@ -1,12 +1,17 @@
 package com.example.amzn
 
+import android.os.Handler
+import android.os.Looper
 import androidx.multidex.MultiDexApplication
-import amzn.BuildConfig
+import com.example.amzn.BuildConfig
 import co.early.fore.kt.core.delegate.DebugDelegateDefault
 import co.early.fore.kt.core.delegate.Fore
+import com.amazon.device.iap.PurchasingService
+import com.example.amzn.data.iap.AmazonIapListener
 import com.example.amzn.di.dataModule
 import com.example.amzn.di.domainModule
 import com.example.amzn.di.uiModule
+import org.koin.android.ext.android.get
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -51,8 +56,15 @@ class App : MultiDexApplication() {
         fun init() {
             // run any initialisation code here
 
-//            val persista: PerSista = inst.get()
-//            persista.wipeEverything {}
+            // simulate a bit of a delay
+            Handler(Looper.getMainLooper()).postDelayed({
+
+                Fore.getLogger().i("registering with amazon purchasing service")
+
+                val purchasingService = inst.get() as com.example.amzn.domain.iap.PurchasingService
+                purchasingService.registerListener(inst, inst.get() as AmazonIapListener)
+                purchasingService.getProductData(setOf("com.amazon.sample.iap.consumable.orange"))
+            },2000)
         }
     }
 }

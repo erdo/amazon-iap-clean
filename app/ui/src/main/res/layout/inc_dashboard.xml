@@ -142,7 +142,7 @@
         android:id="@+id/dashboard_updatenow_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="30dp"
         android:padding="10dp"
         android:text="update\nnow"
@@ -169,12 +169,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
         android:padding="10dp"
         android:text="stop\nauto\nrefresh"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dashboard_purchase_btn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/dashboard_startautorefresh_btn"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_intro_text" />
+
+    <Button
+        android:id="@+id/dashboard_purchase_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:padding="10dp"
+        android:text="[iap]"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dashboard_stopautorefresh_btn"
         app:layout_constraintTop_toBottomOf="@+id/dashboard_intro_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
