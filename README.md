@@ -1,9 +1,30 @@
 # Some sample code for a clean architecture integration of amazon in app payments
 
+## to run sample
 
-# License
+- install the amazon app store on device
+- install the iap amazon test app on device
+- push the product definitions to the device: `adb push consumable-iap.json /sdcard/amazon.sdktester.json`
+- set the device to sandbox mode: `adb shell setprop debug.amazon.sandboxmode debug`
+- for testing, use debug variant only
 
-    Copyright 2015-2021 early.co
+
+## module structure
+
+![module structure](architecture.png)
+
+- domain is implemented as a pure kotlin module
+- domain can see no other modules
+- app module is used for DI and that's about it
+- app module is the only module that can see all other modules
+
+## logs
+logs are visible under the filter: "amzn_"
+
+
+## License
+
+    Copyright 2015-2022 early.co
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

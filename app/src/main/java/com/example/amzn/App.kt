@@ -6,7 +6,6 @@ import androidx.multidex.MultiDexApplication
 import com.example.amzn.BuildConfig
 import co.early.fore.kt.core.delegate.DebugDelegateDefault
 import co.early.fore.kt.core.delegate.Fore
-import com.amazon.device.iap.PurchasingService
 import com.example.amzn.data.iap.AmazonIapListener
 import com.example.amzn.di.dataModule
 import com.example.amzn.di.domainModule
@@ -64,7 +63,7 @@ class App : MultiDexApplication() {
                 val purchasingService = inst.get() as com.example.amzn.domain.iap.PurchasingService
                 purchasingService.registerListener(inst, inst.get() as AmazonIapListener)
                 purchasingService.getProductData(setOf("com.amazon.sample.iap.consumable.orange"))
-            },2000)
+            },1000)
         }
     }
 }

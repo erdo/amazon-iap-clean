@@ -13,14 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.dashboard.DashboardActivity" android:exported="true">
+        <activity android:name=".ui.iap.PurchaseActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.purchase.PurchaseActivity" android:exported="true"/>
-
         <receiver android:name="com.amazon.device.iap.ResponseReceiver" android:exported="true"
             android:permission = "com.amazon.inapp.purchasing.Permission.NOTIFY" >
             <intent-filter>

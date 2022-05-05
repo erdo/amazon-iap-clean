@@ -1,7 +1,5 @@
-package com.example.amzn.ui.purchase
+package com.example.amzn.ui.iap
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 import co.early.fore.core.ui.SyncableView
@@ -14,10 +12,8 @@ import com.example.amzn.ui.R
 import kotlinx.android.synthetic.main.activity_purchase.*
 import org.koin.android.ext.android.inject
 
-@ExperimentalStdlibApi
 class PurchaseActivity : FragmentActivity(R.layout.activity_purchase), SyncableView {
 
-    //models that we need to sync with
     private val boughtItems: BoughtItems by inject()
     private val purchasingService: PurchasingService by inject()
 
@@ -49,11 +45,5 @@ class PurchaseActivity : FragmentActivity(R.layout.activity_purchase), SyncableV
         Fore.getLogger().d("refreshing amazon user data and getting purchase updates")
         purchasingService.getUserData()
         purchasingService.getPurchaseUpdates(false)
-    }
-
-    companion object {
-        fun start(context: Context) {
-            context.startActivity(Intent(context, PurchaseActivity::class.java))
-        }
     }
 }
