@@ -2,8 +2,7 @@
 
 ## to run sample
 
-- install the amazon app store on device
-- install the iap amazon test app on device
+- install the amazon app store and iap amazon test app on device [click this link from your device](https://www.amazon.com/Amazon-App-Tester/dp/B00BN3YZM2/)
 - push the product definitions to the device: `adb push consumable-iap.json /sdcard/amazon.sdktester.json`
 - set the device to sandbox mode: `adb shell setprop debug.amazon.sandboxmode debug`
 - for testing, use debug variant only
